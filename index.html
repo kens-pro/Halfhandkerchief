@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>刺し子で彩る日常｜ハーフハンカチ手作りキット｜刺し子どり</title>
+
+  <!-- Fonts（読みやすさ重視） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* 桜×くすみ（落ち着き） */
+      --sakura-bg: #F7E9EC;     /* 背景（黒→桜） */
+      --paper:     #FFFFFF;     /* 面 */
+      --paper2:    #FFF7F8;     /* 面のほんのり桜 */
+      --ink:       #2F2A2A;     /* 文字（濃い茶墨） */
+      --muted:     #6E6063;     /* サブ文字 */
+      --rose:      #C97A8A;     /* 桜の芯（強調） */
+      --dust:      #DABEC6;     /* くすみ桜 */
+      --sage:      #A6B7AD;     /* くすみ緑（補色） */
+      --clay:      #C8B1A3;     /* くすみベージュ */
+
+      --radius: 22px;
+      --radius2: 30px;
+      --shadow: 0 18px 60px rgba(47,42,42,.10);
+      --shadow2: 0 10px 24px rgba(47,42,42,.10);
+
+      /* 50代向け：見やすい大きめ */
+      --base: clamp(18px, 1.15vw + 14px, 22px);
+      --lh: 1.95;
+      --maxw: 1040px;
+    }
+
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: var(--base);
+      line-height: var(--lh);
+      letter-spacing: .02em;
+      color: var(--ink);
+      background:
+        radial-gradient(900px 500px at 15% 0%, rgba(201,122,138,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, rgba(166,183,173,.18), transparent 62%),
+        linear-gradient(180deg, #FFF7F8, var(--sakura-bg) 45%, #FFF7F8);
+      overflow-x: hidden;
+    }
+
+    a{ color: inherit; }
+    img{ display:block; max-width:100%; }
+
+    /* ✅ 見切れ対策：幅計算ではなく padding 方式で左右安全余白を確保 */
+    .wrap{
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+    @media (max-width: 720px){
+      .wrap{ padding: 0 14px; }
+    }
+
+    /* =========================
+      くぐり刺し風ライン（区切り）
+      - 上：刺し子ステッチ（点線）
+      - 下：くぐり糸（なめらかな波線）
+    ========================== */
+    .kuguri-divider{
+      height: 22px;
+      background-repeat: repeat-x;
+      background-size: 260px 22px;
+      background-position: center;
+      background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'>\
+  <rect width='260' height='22' fill='none'/>\
+  <path d='M8 8 H252' stroke='%23C97A8A' stroke-width='2.2' stroke-linecap='round' stroke-dasharray='3.6 7.2' opacity='0.7'/>\
+  <path d='M8 15 C 28 5, 52 25, 72 15 S 116 5, 136 15 S 180 25, 200 15 S 224 5, 252 15' \
+        stroke='%23A6B7AD' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round' opacity='0.9'/>\
+</svg>");
+      opacity: .95;
+      margin: 26px 0;
+    }
+
+    /* =========================
+      全体カード
+    ========================== */
+    .lp{
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(201,122,138,.14);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius2);
+      overflow: hidden;
+    }
+
+    /* =========================
+      ヘッダー：左右に見切れる・画像いっぱい
+      タイトルは画像内
+    ========================== */
+    .hero-bleed{
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      overflow: hidden;
+      background: var(--paper2);
+    }
+    .hero-media{
+      position: relative;
+      height: clamp(380px, 48vw, 720px);
+      min-height: 360px;
+      overflow: hidden;
+    }
+    .hero-media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.02);
+    }
+    /* テキストが画像と喧嘩しないように、上に“桜のベール” */
+    .hero-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 420px at 18% 30%, rgba(255,255,255,.55), transparent 62%),
+        linear-gradient(180deg, rgba(247,233,236,.12), rgba(247,233,236,.72) 70%, rgba(247,233,236,.92));
+      pointer-events:none;
+    }
+
+    /* ✅ 見切れ対策：ヘッダー内タイトルも padding 方式 */
+    .hero-title{
+      position:absolute;
+      left: 0;
+      right: 0;
+      bottom: 22px;
+      z-index: 2;
+      padding: 0 22px;
+    }
+    @media (max-width: 720px){
+      .hero-title{
+        bottom: 14px;
+        padding: 0 14px;
+      }
+      .hero-media{ height: clamp(360px, 72vw, 520px); }
+    }
+
+    .hero-title .box{
+      margin: 0 auto;  /* 中央 */
+      display: block;
+      max-width: 760px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(201,122,138,.22);
+      border-radius: 18px;
+      box-shadow: var(--shadow2);
+      padding: 18px 18px 14px;
+      backdrop-filter: blur(8px);
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(201,122,138,.10);
+      border: 1px solid rgba(201,122,138,.22);
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: .06em;
+      font-size: .90em;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+    .badge i{
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--rose);
+      box-shadow: 0 0 0 7px rgba(201,122,138,.10);
+      display:inline-block;
+    }
+    h1{
+      font-family: "Shippori Mincho", serif;
+      margin: 0 0 8px;
+      font-size: clamp(30px, 3.2vw + 10px, 56px);
+      line-height: 1.14;
+      letter-spacing: .02em;
+      color: var(--ink);
+    }
+    .tagline{
+      margin:0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: clamp(18px, 1.2vw + 10px, 24px);
+    }
+
+    /* =========================
+      セクション
+    ========================== */
+    .section{
+      padding: 54px 0;
+    }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap:wrap;
+      margin-bottom: 18px;
+    }
+    .section-head h2{
+      font-family: "Shippori Mincho", serif;
+      margin:0;
+      font-size: clamp(24px, 2.1vw + 10px, 40px);
+      line-height: 1.2;
+      letter-spacing: .02em;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      font-weight: 600;
+      max-width: 58ch;
+    }
+
+    .panel{
+      background: linear-gradient(180deg, var(--paper), var(--paper2));
+      border: 1px solid rgba(201,122,138,.16);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+      max-width: 100%;
+    }
+
+    /* “こんな方に” */
+    .fit-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap: 14px;
+    }
+    .fit-list li{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 14px 14px;
+      border-radius: 18px;
+      background: rgba(218,190,198,.22);
+      border: 1px solid rgba(201,122,138,.18);
+      font-weight: 800;
+    }
+    .fit-list .mark{
+      width: 18px; height: 18px;
+      border-radius: 6px;
+      background: rgba(201,122,138,.18);
+      border: 1px solid rgba(201,122,138,.30);
+      position: relative;
+      flex: 0 0 auto;
+      margin-top: 5px;
+    }
+    .fit-list .mark::after{
+      content:"";
+      position:absolute;
+      left: 5px; top: 3px;
+      width: 6px; height: 10px;
+      border-right: 2px solid var(--rose);
+      border-bottom: 2px solid var(--rose);
+      transform: rotate(40deg);
+    }
+
+    /* コンセプト：テキスト×画像 */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .split .text{
+      padding: 22px;
+      border-radius: var(--radius2);
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(201,122,138,.18);
+      box-shadow: var(--shadow2);
+    }
+    .split .text .lead{
+      margin-top: 0;
+      color: var(--rose);
+      font-weight: 900;
+      font-size: 1.12em;
+      letter-spacing: .03em;
+    }
+    .split .text p{
+      margin: 10px 0 0;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .split .img{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      border: 1px solid rgba(201,122,138,.18);
+      box-shadow: var(--shadow2);
+      background: var(--paper2);
+      min-height: 320px;
+    }
+    .split .img img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    /* 選択カード */
+    .grid{
+      display:grid;
+      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 14px;
+    }
+    .grid.three{
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .card{
+      border-radius: var(--radius2);
+      overflow:hidden;
+      border: 1px solid rgba(201,122,138,.16);
+      box-shadow: var(--shadow2);
+      background: rgba(255,255,255,.78);
+      transition: transform .18s ease, box-shadow .18s ease;
+      max-width: 100%;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 42px rgba(47,42,42,.12);
+    }
+    .thumb{
+      aspect-ratio: 4/3;
+      overflow:hidden;
+      background: #F3E6E8;
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+    }
+    .card-body{
+      padding: 14px 14px 16px;
+    }
+    .card-body b{
+      display:block;
+      font-weight: 900;
+      margin: 0 0 6px;
+      letter-spacing: .04em;
+      font-size: 1.04em;
+    }
+    .card-body small{
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .note{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: .98em;
+    }
+
+    /* セット内容 */
+    .kit-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap: 12px;
+    }
+    .kit-list li{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 14px 14px;
+      border-radius: 18px;
+      background: rgba(166,183,173,.14);
+      border: 1px solid rgba(166,183,173,.22);
+      font-weight: 700;
+    }
+    .kit-list i{
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--sage);
+      box-shadow: 0 0 0 7px rgba(166,183,173,.12);
+      display:inline-block;
+      margin-top: 8px;
+      flex: 0 0 auto;
+    }
+    .warn{
+      margin-top: 14px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(201,122,138,.22);
+      background: rgba(201,122,138,.10);
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .warn b{ color: var(--rose); }
+
+    /* 価格 & 注文 */
+    .order{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .pricebox{
+      padding: 22px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(201,122,138,.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,247,248,.86));
+      box-shadow: var(--shadow2);
+      max-width: 100%;
+    }
+    .pricebox .price{
+      font-family: "Shippori Mincho", serif;
+      font-size: clamp(34px, 2.8vw + 14px, 56px);
+      font-weight: 700;
+      margin: 4px 0 6px;
+      color: var(--ink);
+    }
+    .pricebox .price small{
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: .46em;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .ship{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(166,183,173,.16);
+      border: 1px solid rgba(166,183,173,.28);
+      font-weight: 900;
+      letter-spacing: .06em;
+      margin-top: 10px;
+    }
+    .ship i{
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--sage);
+      box-shadow: 0 0 0 7px rgba(166,183,173,.12);
+      display:inline-block;
+    }
+
+    .buybox{
+      padding: 22px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(201,122,138,.18);
+      background: rgba(255,255,255,.82);
+      box-shadow: var(--shadow2);
+      max-width: 100%;
+    }
+    .buybox h3{
+      margin: 0 0 14px;
+      font-family: "Shippori Mincho", serif;
+      font-size: clamp(20px, 1.6vw + 10px, 28px);
+      letter-spacing: .02em;
+    }
+    .btns{
+      display:grid;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* ✅ 修正ポイント：
+       右側の「GO/OPEN」文字を廃止 → 丸い矢印アイコンだけで整合
+       右側は absolute 固定 → スマホでも折り返しで崩れない
+       padding-right を増やす → 右が見切れない
+    */
+    .btn{
+      position: relative;
+      width: 100%;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start; /* 右はabsolute */
+      gap: 14px;
+      padding: 16px 64px 16px 16px; /* 右丸アイコン分 */
+      border-radius: 18px;
+      text-decoration:none;
+      border: 1px solid rgba(201,122,138,.20);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,247,248,.86));
+      box-shadow: 0 10px 22px rgba(47,42,42,.10);
+      transition: transform .15s ease, box-shadow .15s ease;
+      min-height: 70px;
+      max-width: 100%;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 30px rgba(47,42,42,.12); }
+    .btn:focus-visible{ outline: 3px solid rgba(201,122,138,.30); outline-offset: 2px; }
+
+    .btn .left{
+      display:flex;
+      flex-direction:column;
+      gap: 4px;
+      min-width: 0;
+    }
+    .btn .left small{
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .92em;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .btn .left b{
+      font-weight: 900;
+      letter-spacing: .04em;
+      font-size: 1.05em;
+    }
+
+    .btn .right{
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      letter-spacing: .06em;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(201,122,138,.18);
+    }
+    .btn .arrow{
+      width: 12px;
+      height: 12px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(-45deg);
+    }
+
+    /* ボタン差別化（くすみベース） */
+    .btn.line{ border-color: rgba(166,183,173,.34); }
+    .btn.line .right{ color: var(--sage); border-color: rgba(166,183,173,.28); }
+
+    .btn.square{ border-color: rgba(200,177,163,.34); }
+    .btn.square .right{ color: #B58866; border-color: rgba(200,177,163,.34); }
+
+    .btn.mail{ border-color: rgba(125,139,169,.30); }
+    .btn.mail .right{ color: #6E7FA2; border-color: rgba(125,139,169,.26); }
+
+    .btn.mercari{ border-color: rgba(201,122,138,.22); }
+    .btn.mercari .right{ color: var(--rose); }
+
+    footer{
+      padding: 44px 0 120px;
+      text-align:center;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    /* 追従CTA */
+    .sticky{
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      width: min(760px, calc(100% - 22px));
+      z-index: 100;
+      border-radius: 999px;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(201,122,138,.24);
+      box-shadow: 0 18px 60px rgba(47,42,42,.14);
+      backdrop-filter: blur(10px);
+      overflow:hidden;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .sticky a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      text-decoration:none;
+      font-weight: 900;
+      letter-spacing: .06em;
+      color: var(--ink);
+    }
+    .sticky .left{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .sticky .badge2{
+      width: 38px; height: 38px;
+      border-radius: 999px;
+      background: rgba(201,122,138,.14);
+      border: 1px solid rgba(201,122,138,.22);
+      box-shadow: 0 0 0 8px rgba(201,122,138,.08);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+    }
+    .sticky .badge2::after{
+      content:"";
+      width: 12px; height: 12px;
+      border-radius: 3px;
+      background: var(--rose);
+    }
+    .sticky .text{
+      display:flex;
+      flex-direction:column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .sticky .text small{
+      color: var(--muted);
+      font-weight: 800;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .sticky .text b{
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    /* ✅ sticky右も「文字なし矢印」に統一 */
+    .sticky .right{
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      color: var(--rose);
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(201,122,138,.18);
+      flex: 0 0 auto;
+    }
+
+    /* アニメ（控えめ） */
+    .reveal{
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+      .sticky{ transition:none !important; }
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 980px){
+      .split{ grid-template-columns: 1fr; }
+      .order{ grid-template-columns: 1fr; }
+      .grid.three{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px){
+      .grid{ grid-template-columns: 1fr; }
+      .grid.three{ grid-template-columns: 1fr; }
+      .section{ padding: 44px 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="lp">
+    <!-- ヘッダー（左右に見切れる・画像いっぱい・タイトルは画像内） -->
+    <header class="hero-bleed" aria-label="ヘッダー">
+      <div class="hero-media">
+        <img src="/imeges/IMG_1542.jpg" alt="刺し子ハーフハンカチ">
+        <div class="hero-title">
+          <div class="box">
+            <div class="badge"><i></i> 刺し子どり｜手作りキット</div>
+            <h1>刺し子ハーフ<br>ハンカチキット</h1>
+            <p class="tagline">手仕事で綴る、私だけの彩り。</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="kuguri-divider" aria-hidden="true"></div>
+
+      <!-- 特徴 -->
+      <section class="section reveal" id="fit">
+        <div class="section-head">
+          <h2>こんな方にピッタリです</h2>
+          <p>「やってみたい」気持ちを、そのまま完成へ。</p>
+        </div>
+
+        <div class="panel">
+          <ul class="fit-list">
+            <li><span class="mark" aria-hidden="true"></span><span>材料を揃えたり、図案を描くのが大変な方</span></li>
+            <li><span class="mark" aria-hidden="true"></span><span>一人で完成させられるか不安な方</span></li>
+            <li><span class="mark" aria-hidden="true"></span><span>正しい作り方を基礎から学びたい方</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="kuguri-divider" aria-hidden="true"></div>
+
+      <!-- コンセプト -->
+      <section class="section reveal" id="concept">
+        <div class="section-head">
+          <h2>世界でただひとつ。あなたの心を贈る。</h2>
+          <p>写真と文字がぶつからない配置で、ゆったり読み進められる設計に。</p>
+        </div>
+
+        <div class="split">
+          <div class="text">
+            <p class="lead">“静かなオシャレ”は、手元から。</p>
+            <p>オーガニックな草木染（枇杷・月桂樹）の素材を使った、ふわふわのハーフハンカチ。</p>
+            <p>わかりやすい説明書と動画をご用意。刺し子どりがメッセージでも直接お答えします。</p>
+          </div>
+          <div class="img">
+            <img src="/imeges/IMG_1550.jpg" alt="ハンカチ完成イメージ">
+          </div>
+        </div>
+      </section>
+
+      <div class="kuguri-divider" aria-hidden="true"></div>
+
+      <!-- 選べる色とデザイン -->
+      <section class="section reveal" id="design">
+        <div class="section-head">
+          <h2>選べる色とデザイン</h2>
+          <p>画像を大きく。迷いが出やすい所ほど“見て選べる”ように。</p>
+        </div>
+
+        <div class="panel">
+          <div style="font-weight:900; letter-spacing:.06em;">【染色】どちらかお選びください</div>
+          <div class="grid">
+            <div class="card">
+              <div class="thumb">
+                <img src="/imeges/IMG_1553.jpg" alt="枇杷染め">
+              </div>
+              <div class="card-body">
+                <b>枇杷（びわ）染め</b>
+                <small>やさしい深み。肌なじみの良い色合い。</small>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="thumb">
+                <img src="/imeges/IMG_1546.jpg" alt="月桂樹染め">
+              </div>
+              <div class="card-body">
+                <b>月桂樹染め</b>
+                <small>すっきり上品。凛とした雰囲気に。</small>
+              </div>
+            </div>
+          </div>
+
+          <div style="height:18px;"></div>
+          <div style="font-weight:900; letter-spacing:.06em;">【柄】お好きなものをお選びください</div>
+
+          <div class="grid three">
+            <div class="card">
+              <div class="thumb">
+                <img src="/imeges/pattern1.jpg" alt="七宝つなぎ">
+              </div>
+              <div class="card-body">
+                <b>七宝つなぎ</b>
+                <small>整うリズム。王道の美しさ。</small>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="thumb">
+                <img src="/imeges/pattern2.jpg" alt="三角千鳥">
+              </div>
+              <div class="card-body">
+                <b>三角千鳥</b>
+                <small>軽やかで粋。動きのある表情。</small>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="thumb">
+                <img src="/imeges/pattern3.jpg" alt="無地">
+              </div>
+              <div class="card-body">
+                <b>無地</b>
+                <small>“余白”がオシャレ。布の質感を楽しむ。</small>
+              </div>
+            </div>
+          </div>
+
+          <p class="note">※無地の方には「麻の葉」の図案データをプレゼント！</p>
+        </div>
+      </section>
+
+      <div class="kuguri-divider" aria-hidden="true"></div>
+
+      <!-- セット内容 -->
+      <section class="section reveal" id="kit">
+        <div class="section-head">
+          <h2>セット内容</h2>
+          <p>必要な布は全部入っています。あとは針と糸だけ。</p>
+        </div>
+
+        <div class="panel">
+          <ul class="kit-list">
+            <li><i aria-hidden="true"></i><span>表地：草木染 晒 1枚 ＋ 重ね用白晒 1枚</span></li>
+            <li><i aria-hidden="true"></i><span>中生地：白ダブルガーゼ 1枚（三つ折り用）</span></li>
+            <li><i aria-hidden="true"></i><span>裏生地：ダブルガーゼ 1枚（ドット柄）</span></li>
+            <li><i aria-hidden="true"></i><span>作り方の説明プリント ＋ 解説動画</span></li>
+          </ul>
+
+          <div class="warn">
+            <b>※針や糸は含まれておりません。</b>お手持ちの物をご用意ください。
+          </div>
+        </div>
+      </section>
+
+      <div class="kuguri-divider" aria-hidden="true"></div>
+
+      <!-- 価格・購入 -->
+      <section class="section reveal" id="order">
+        <div class="section-head">
+          <h2>ご注文はこちら</h2>
+          <p>相談してからの購入も歓迎です。迷いは“先に”ほどくと安心です。</p>
+        </div>
+
+        <div class="order">
+          <div class="pricebox">
+            <div style="font-weight:900; letter-spacing:.06em;">価格</div>
+            <div class="price">¥2,500 <small>(税込)</small></div>
+            <div class="ship"><i></i> 日本全国 送料無料</div>
+            <div style="margin-top:14px; color:var(--muted); font-weight:700;">
+              決済方法に合わせて、右のボタンからお選びください。
+            </div>
+          </div>
+
+          <div class="buybox">
+            <h3>購入・申込</h3>
+            <div class="btns">
+              <a href="https://square.link/u/ZhHi4ekf" class="btn square">
+                <span class="left">
+                  <small>クレジットカードで今すぐ注文</small>
+                  <b>カードで購入する</b>
+                </span>
+                <!-- ✅ 右は矢印だけ（GOなど文字なし） -->
+                <span class="right" aria-hidden="true"><span class="arrow"></span></span>
+              </a>
+
+              <a href="https://lin.ee/ce9vOwT" class="btn line">
+                <span class="left">
+                  <small>銀行振込・相談してから注文</small>
+                  <b>公式LINEで申し込む</b>
+                </span>
+                <span class="right" aria-hidden="true"><span class="arrow"></span></span>
+              </a>
+
+              <a href="mailto:doripu7@gmail.com?subject=刺し子ハーフハンカチキット申し込み" class="btn mail">
+                <span class="left">
+                  <small>メールでのご連絡はこちら</small>
+                  <b>メールで注文する</b>
+                </span>
+                <span class="right" aria-hidden="true"><span class="arrow"></span></span>
+              </a>
+
+              <a href="https://jp.mercari.com/user/profile/XXXXXXXXX" target="_blank" rel="noopener" class="btn mercari">
+                <span class="left">
+                  <small>メルカリのポイントを使いたい方</small>
+                  <b>メルカリで購入する</b>
+                </span>
+                <span class="right" aria-hidden="true"><span class="arrow"></span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="footer">
+        <p>&copy; 刺し子どり Sashiko-Dori</p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- 追従ボタン（右は矢印のみで整合） -->
+  <div class="sticky" id="sticky">
+    <a href="https://lin.ee/ce9vOwT" aria-label="公式LINEで相談・注文">
+      <span class="left">
+        <span class="badge2" aria-hidden="true"></span>
+        <span class="text">
+          <small>不安・質問は先に解消</small>
+          <b>公式LINEで相談・注文する</b>
+        </span>
+      </span>
+      <span class="right" aria-hidden="true"><span class="arrow"></span></span>
+    </a>
+  </div>
+
+  <script>
+    // 1) ふわっと表示（控えめ）
+    (function(){
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+
+      const els = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      els.forEach(el => io.observe(el));
+    })();
+
+    // 2) フッター付近で追従CTAを少し引っ込める（邪魔を減らす）
+    (function(){
+      const sticky = document.getElementById('sticky');
+      const footer = document.getElementById('footer');
+      if (!sticky || !footer) return;
+
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            sticky.style.opacity = '0.6';
+            sticky.style.transform = 'translateX(-50%) translateY(10px)';
+          } else {
+            sticky.style.opacity = '1';
+            sticky.style.transform = 'translateX(-50%) translateY(0)';
+          }
+          if (reduce){
+            sticky.style.transition = 'none';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      io.observe(footer);
+    })();
+  </script>
+</body>
+</html>

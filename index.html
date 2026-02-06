@@ -37,15 +37,6 @@
       --shadow: 0 18px 60px rgba(47,42,42,.10);
       --shadow2: 0 10px 24px rgba(47,42,42,.10);
 
-      /* 購入ボタン用（薄めカラー） */
-      --btn-line-bg:    rgba(209,241,221,.48); /* LINE 緑（薄め） */
-      --btn-square-bg:  rgba(255,250,240,.72); /* クリーム系 */
-      --btn-mail-bg:    rgba(230,240,255,.52); /* 薄いブルー */
-      --btn-mercari-bg: rgba(255,239,241,.48); /* メルカリ 現状に合わせる */
-
-      /* クリーム基調（セット内容パネル用） */
-      --cream: #FFF8E8;
-
       /* 50代向け：見やすい大きめ */
       --base: clamp(18px, 1.15vw + 14px, 22px);
       --lh: 1.95;
@@ -247,8 +238,8 @@
     }
 
     .panel{
-      background: linear-gradient(180deg, var(--cream), var(--paper2));
-      border: 1px solid rgba(201,122,138,.12);
+      background: linear-gradient(180deg, var(--paper), var(--paper2));
+      border: 1px solid rgba(201,122,138,.16);
       border-radius: var(--radius2);
       box-shadow: var(--shadow2);
       padding: 22px;
@@ -561,33 +552,17 @@
       transform: rotate(-45deg);
     }
 
-    /* ボタン差別化（薄めカラー背景） */
-    .btn.line{
-      border-color: rgba(166,183,173,.24);
-      background: linear-gradient(180deg, var(--btn-line-bg), rgba(255,255,255,0.06));
-      color: #2F4F2F;
-    }
-    .btn.line .right{ color: #3B8A41; border-color: rgba(166,183,173,.18); }
+    /* ボタン差別化（くすみベース） */
+    .btn.line{ border-color: rgba(166,183,173,.34); }
+    .btn.line .right{ color: var(--sage); border-color: rgba(166,183,173,.28); }
 
-    .btn.square{
-      border-color: rgba(200,177,163,.28);
-      background: linear-gradient(180deg, var(--btn-square-bg), rgba(255,250,240,0.02));
-      color: #5A432A;
-    }
+    .btn.square{ border-color: rgba(200,177,163,.34); }
     .btn.square .right{ color: #B58866; border-color: rgba(200,177,163,.34); }
 
-    .btn.mail{
-      border-color: rgba(125,139,169,.22);
-      background: linear-gradient(180deg, var(--btn-mail-bg), rgba(230,240,255,0.04));
-      color: #27406B;
-    }
+    .btn.mail{ border-color: rgba(125,139,169,.30); }
     .btn.mail .right{ color: #6E7FA2; border-color: rgba(125,139,169,.26); }
 
-    .btn.mercari{
-      border-color: rgba(201,122,138,.22);
-      background: linear-gradient(180deg, var(--btn-mercari-bg), rgba(255,239,241,0.04));
-      color: #8A4656;
-    }
+    .btn.mercari{ border-color: rgba(201,122,138,.22); }
     .btn.mercari .right{ color: var(--rose); }
 
     footer{

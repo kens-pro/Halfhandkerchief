@@ -679,6 +679,37 @@
       .grid.three{ grid-template-columns: 1fr; }
       .section{ padding: 44px 0; }
     }
+      /* --- 動画セクション用の設定（修正版） --- */
+    .video-container {
+      width: 100%;
+      max-width: 500px; /* PCでの表示サイズ：少し大きくしました */
+      margin: 0 auto 40px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow2);
+      background: #000;
+      
+      /* 縦長比率(9:16)を維持するための設定 */
+      position: relative;
+      aspect-ratio: 9 / 16; 
+    }
+
+    /* aspect-ratioが効かない古いブラウザ用 */
+    @supports not (aspect-ratio: 9 / 16) {
+      .video-container {
+        padding-top: 177.77%; /* 16 ÷ 9 = 1.77... */
+      }
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    /* --- 動画セクション用の設定（ここまで） --- */
   </style>
 </head>
 
@@ -717,14 +748,21 @@
           </ul>
         </div>
       </section>
-
-            <!-- 価格・購入 -->
-      <section class="section reveal" id="order">
+      <!-- 制作動画セクション（ここから） -->
+      <section class="section reveal" id="video">
         <div class="section-head">
-          <h2>ご注文はこちら</h2>
-          <p>相談してからのご購入も歓迎です。お気軽にお知らせください。</p>
+          <h2>制作の様子を動画で見る</h2>
+          <p>初めての方でも安心。手順を分かりやすく解説しています。</p>
         </div>
+        <div class="video-container">
+          <iframe src="https://player.vimeo.com/video/1162425077?background=1" 
+                  allow="autoplay; fullscreen; picture-in-picture" 
+                  title="制作サンプル動画"></iframe>
+        </div>
+      </section>
+      <!-- 制作動画セクション（ここまで） -->
 
+       
 <!-- 価格・購入（メルカリ例外対応版） -->
       <section class="section reveal" id="order">
         <div class="section-head">
@@ -906,14 +944,7 @@
 
       <div class="kuguri-divider" aria-hidden="true"></div>
 
-      <!-- 価格・購入 -->
-      <section class="section reveal" id="order">
-        <div class="section-head">
-          <h2>ご注文はこちら</h2>
-          <p>相談してからのご購入も歓迎です。お気軽にお知らせください。</p>
-        </div>
-
-      <!-- 価格・購入（メルカリ例外対応版） -->
+         <!-- 価格・購入（メルカリ例外対応版） -->
       <section class="section reveal" id="order">
         <div class="section-head">
           <h2>ご注文はこちら</h2>

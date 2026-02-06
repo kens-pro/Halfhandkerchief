@@ -392,15 +392,15 @@
       align-items:flex-start;
       padding: 14px 14px;
       border-radius: 18px;
-      background: rgba(166,183,173,.14);
-      border: 1px solid rgba(166,183,173,.22);
+      background: linear-gradient(180deg, #FFFDF6, #FFF7EA);
+      border: 1px solid rgba(200,177,163,.18);
       font-weight: 700;
     }
     .kit-list i{
       width: 10px; height: 10px;
       border-radius: 50%;
-      background: var(--sage);
-      box-shadow: 0 0 0 7px rgba(166,183,173,.12);
+      background: var(--clay);
+      box-shadow: 0 0 0 7px rgba(200,177,163,.10);
       display:inline-block;
       margin-top: 8px;
       flex: 0 0 auto;
@@ -552,18 +552,60 @@
       transform: rotate(-45deg);
     }
 
-    /* ボタン差別化（くすみベース） */
-    .btn.line{ border-color: rgba(166,183,173,.34); }
-    .btn.line .right{ color: var(--sage); border-color: rgba(166,183,173,.28); }
+    /* ボタン差別化（明るい色で区別） */
+    .btn.line{
+      /* 薄めのグリーンにして、文字は真っ黒にしない（濃いグリーン系） */
+      background: linear-gradient(180deg, #E9FFEF, #CFF7D8);
+      color: #163822; /* 真っ黒ではない濃い緑で可読性を確保 */
+      border-color: rgba(0,0,0,0.06);
+      box-shadow: 0 8px 18px rgba(22,56,34,0.06);
+      font-weight: 900;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+    }
+    .btn.line .right{
+      background: rgba(255,255,255,0.95);
+      color: #163822; /* 矢印も同じ色で統一 */
+      border-color: rgba(0,0,0,0.06);
+      box-shadow: 0 2px 6px rgba(22,56,34,0.06);
+    }
+    .btn.line:hover{
+      background: linear-gradient(180deg, #DFFFE5, #BFF0C6);
+      transform: translateY(-1px);
+    }
+    .btn.line .left small{ color: rgba(22,56,34,0.88); }
 
-    .btn.square{ border-color: rgba(200,177,163,.34); }
-    .btn.square .right{ color: #B58866; border-color: rgba(200,177,163,.34); }
+    .btn.square{
+      background: linear-gradient(180deg, #FFF7EA, #FFE6B3);
+      color: #5B3B12;
+      border-color: rgba(200,177,163,.18);
+    }
+    .btn.square .right{
+      background: rgba(255,255,255,0.9);
+      color: #B58866;
+      border-color: rgba(200,177,163,.18);
+    }
 
-    .btn.mail{ border-color: rgba(125,139,169,.30); }
-    .btn.mail .right{ color: #6E7FA2; border-color: rgba(125,139,169,.26); }
+    .btn.mail{
+      background: linear-gradient(180deg, #E8F8FF, #CFF2FF);
+      color: #0B4F6F;
+      border-color: rgba(125,139,169,.18);
+    }
+    .btn.mail .right{
+      background: rgba(255,255,255,0.9);
+      color: #0B4F6F;
+      border-color: rgba(125,139,169,.16);
+    }
 
-    .btn.mercari{ border-color: rgba(201,122,138,.22); }
-    .btn.mercari .right{ color: var(--rose); }
+    .btn.mercari{
+      background: linear-gradient(180deg,#FFEAF0,#FFD0E0);
+      color: #8B2F4A;
+      border-color: rgba(201,122,138,.16);
+    }
+    .btn.mercari .right{
+      background: rgba(255,255,255,0.9);
+      color: var(--rose);
+      border-color: rgba(201,122,138,.16);
+    }
 
     footer{
       padding: 44px 0 120px;

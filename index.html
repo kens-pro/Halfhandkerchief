@@ -1,18 +1,32 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DJS6J7DFNS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJS6J7DFNS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DJS6J7DFNS');
+  </script>
 
-  gtag('config', 'G-DJS6J7DFNS');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>刺し子で彩る日常｜ハーフハンカチ手作りキット｜刺し子どり</title>
+
+  <!-- ✅ OGP / SEO（追加：要素削除なし） -->
+  <meta name="description" content="草木染（枇杷・月桂樹）素材の刺し子ハーフハンカチを手作りできるキット。説明書＋動画つき。わからない時は公式LINEやDMでサポートします。">
+  <link rel="canonical" href="https://kens-pro.github.io/Halfhandkerchief/">
+  <meta property="og:title" content="刺し子ハーフハンカチキット｜刺し子どり">
+  <meta property="og:description" content="草木染（枇杷・月桂樹）素材の刺し子ハーフハンカチを手作りできるキット。説明書＋動画つき。公式LINEやDMでサポートします。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kens-pro.github.io/Halfhandkerchief/">
+  <meta property="og:image" content="https://kens-pro.github.io/Halfhandkerchief/imeges/IMG_1555.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="刺し子ハーフハンカチキット｜刺し子どり">
+  <meta name="twitter:description" content="草木染（枇杷・月桂樹）素材の刺し子ハーフハンカチを手作りできるキット。説明書＋動画つき。公式LINEやDMでサポートします。">
+  <meta name="twitter:image" content="https://kens-pro.github.io/Halfhandkerchief/imeges/IMG_1555.jpg">
 
   <!-- Fonts（読みやすさ重視） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -735,7 +749,7 @@
       .grid.three{ grid-template-columns: 1fr; }
       .section{ padding: 44px 0; }
     }
-      /* --- 動画セクション用の設定（修正版） --- */
+    /* --- 動画セクション用の設定（修正版） --- */
     .video-container {
       width: 100%;
       max-width: 500px; /* PCでの表示サイズ：少し大きくしました */
@@ -744,10 +758,10 @@
       overflow: hidden;
       box-shadow: var(--shadow2);
       background: #000;
-      
+
       /* 縦長比率(9:16)を維持するための設定 */
       position: relative;
-      aspect-ratio: 9 / 16; 
+      aspect-ratio: 9 / 16;
     }
 
     /* aspect-ratioが効かない古いブラウザ用 */
@@ -804,6 +818,7 @@
           </ul>
         </div>
       </section>
+
       <!-- 制作動画セクション（ここから） -->
       <section class="section reveal" id="video">
         <div class="section-head">
@@ -811,15 +826,15 @@
           <p>初めての方でも安心。手順を分かりやすく解説しています。</p>
         </div>
         <div class="video-container">
-          <iframe src="https://player.vimeo.com/video/1162425077?background=1" 
-                  allow="autoplay; fullscreen; picture-in-picture" 
+          <!-- ✅ Vimeo：background=1 を外して通常視聴に（要素削除なし・srcのみ調整） -->
+          <iframe src="https://player.vimeo.com/video/1162425077?autoplay=0&title=0&byline=0&portrait=0"
+                  allow="autoplay; fullscreen; picture-in-picture"
                   title="制作サンプル動画"></iframe>
         </div>
       </section>
       <!-- 制作動画セクション（ここまで） -->
 
-       
-<!-- 価格・購入（メルカリ例外対応版） -->
+      <!-- 価格・購入（メルカリ例外対応版） -->
       <section class="section reveal" id="order">
         <div class="section-head">
           <h2>ご注文はこちら</h2>
@@ -840,7 +855,9 @@
             <h3>購入・申込</h3>
             <div class="btns">
               <!-- Square -->
-              <a href="https://my-site-104584-109581.square.site/product/-/XG3AL6EQGTVSFGBWOPNCURIO?cp=true&sa=true&sbp=false&q=false" class="btn square">
+              <a href="https://my-site-104584-109581.square.site/product/-/XG3AL6EQGTVSFGBWOPNCURIO?cp=true&sa=true&sbp=false&q=false"
+                 class="btn square"
+                 data-cta="buy_square_main">
                 <span class="left">
                   <small>クレジットカードで今すぐ注文</small>
                   <b>カードで購入する</b>
@@ -849,7 +866,9 @@
               </a>
 
               <!-- LINE -->
-              <a href="https://lin.ee/ce9vOwT" class="btn line">
+              <a href="https://lin.ee/ce9vOwT"
+                 class="btn line"
+                 data-cta="apply_line_main">
                 <span class="left">
                   <small>銀行振込・相談してから注文</small>
                   <b>公式LINEで申し込む</b>
@@ -857,8 +876,13 @@
                 <span class="right" aria-hidden="true"><span class="arrow"></span></span>
               </a>
 
-              <!-- Mail -->
-              <a href="https://www.instagram.com/sashikodori/" class="btn insta" target="_blank" rel="noopener" aria-label="InstagramでDMする">
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/sashikodori/"
+                 class="btn insta"
+                 target="_blank"
+                 rel="noopener"
+                 aria-label="InstagramでDMする"
+                 data-cta="dm_instagram_main">
                 <span class="left">
                   <small>Instagramでのご相談はこちら（DM）</small>
                   <b>InstagramでDMする</b>
@@ -874,12 +898,16 @@
                 メルカリでのご購入をご希望の場合は、インスタグラムDM、または、公式LINEで<strong style="color:#C97A8A;">「メルカリ希望」</strong>と送ってください。専用ページを作成してご案内します。
               </p>
               <div style="margin-top: 14px;">
-                <a href="https://lin.ee/ce9vOwT" target="_blank" rel="noopener" style="display:inline-block; color:#C97A8A; font-size:0.9em; font-weight:800; text-decoration:underline; text-underline-offset:4px;">
+                <a href="https://lin.ee/ce9vOwT"
+                   target="_blank"
+                   rel="noopener"
+                   style="display:inline-block; color:#C97A8A; font-size:0.9em; font-weight:800; text-decoration:underline; text-underline-offset:4px;"
+                   data-cta="open_line_mercari_box_main">
                   公式LINEを開く ≫
                 </a>
               </div>
             </div>
-            
+
           </div>
         </div>
       </section>
@@ -890,7 +918,7 @@
       <section class="section reveal" id="concept">
         <div class="section-head">
           <h2>世界でただひとつ。あなたの心を贈る。</h2>
-          </div>
+        </div>
 
         <div class="split">
           <div class="text">
@@ -910,7 +938,7 @@
       <section class="section reveal" id="design">
         <div class="section-head">
           <h2>選べる色とデザイン</h2>
-          </div>
+        </div>
 
         <div class="panel">
           <div style="font-weight:900; letter-spacing:.06em;">【生地色（草木染）】どちらかお選びください</div>
@@ -1000,8 +1028,9 @@
 
       <div class="kuguri-divider" aria-hidden="true"></div>
 
-         <!-- 価格・購入（メルカリ例外対応版） -->
-      <section class="section reveal" id="order">
+      <!-- 価格・購入（メルカリ例外対応版） -->
+      <!-- ✅ id重複を解消（要素削除なし・idのみ変更） -->
+      <section class="section reveal" id="order2">
         <div class="section-head">
           <h2>ご注文はこちら</h2>
           <p>相談してからのご購入も歓迎です。お気軽にお知らせください。</p>
@@ -1021,7 +1050,9 @@
             <h3>購入・申込</h3>
             <div class="btns">
               <!-- Square -->
-              <a href="https://my-site-104584-109581.square.site/product/-/XG3AL6EQGTVSFGBWOPNCURIO?cp=true&sa=true&sbp=false&q=false" class="btn square">
+              <a href="https://my-site-104584-109581.square.site/product/-/XG3AL6EQGTVSFGBWOPNCURIO?cp=true&sa=true&sbp=false&q=false"
+                 class="btn square"
+                 data-cta="buy_square_bottom">
                 <span class="left">
                   <small>クレジットカードで今すぐ注文</small>
                   <b>カードで購入する</b>
@@ -1030,7 +1061,9 @@
               </a>
 
               <!-- LINE -->
-              <a href="https://lin.ee/ce9vOwT" class="btn line">
+              <a href="https://lin.ee/ce9vOwT"
+                 class="btn line"
+                 data-cta="apply_line_bottom">
                 <span class="left">
                   <small>銀行振込・相談してから注文</small>
                   <b>公式LINEで申し込む</b>
@@ -1038,8 +1071,13 @@
                 <span class="right" aria-hidden="true"><span class="arrow"></span></span>
               </a>
 
-              <!-- Mail -->
-              <a href="https://www.instagram.com/sashikodori/" class="btn insta" target="_blank" rel="noopener" aria-label="InstagramでDMする">
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/sashikodori/"
+                 class="btn insta"
+                 target="_blank"
+                 rel="noopener"
+                 aria-label="InstagramでDMする"
+                 data-cta="dm_instagram_bottom">
                 <span class="left">
                   <small>Instagramでのご相談はこちら（DM）</small>
                   <b>InstagramでDMする</b>
@@ -1055,15 +1093,20 @@
                 メルカリでのご購入をご希望の場合は、インスタグラムDM、または、公式LINEで<strong style="color:#C97A8A;">「メルカリ希望」</strong>と送ってください。専用ページを作成してご案内します。
               </p>
               <div style="margin-top: 14px;">
-                <a href="https://lin.ee/ce9vOwT" target="_blank" rel="noopener" style="display:inline-block; color:#C97A8A; font-size:0.9em; font-weight:800; text-decoration:underline; text-underline-offset:4px;">
+                <a href="https://lin.ee/ce9vOwT"
+                   target="_blank"
+                   rel="noopener"
+                   style="display:inline-block; color:#C97A8A; font-size:0.9em; font-weight:800; text-decoration:underline; text-underline-offset:4px;"
+                   data-cta="open_line_mercari_box_bottom">
                   公式LINEを開く ≫
                 </a>
               </div>
             </div>
-            
+
           </div>
         </div>
       </section>
+
       <footer id="footer">
         <p>&copy; 2026 刺し子どり Sashikodori</p>
       </footer>
@@ -1072,11 +1115,13 @@
 
   <!-- 追従ボタン（右は矢印のみで整合） -->
   <div class="sticky" id="sticky">
-    <a href="https://lin.ee/ce9vOwT" aria-label="公式LINEで相談・注文">
+    <a href="https://lin.ee/ce9vOwT"
+       aria-label="公式LINEで相談・注文"
+       data-cta="sticky_line">
       <span class="left">
         <span class="badge2" aria-hidden="true"></span>
         <span class="text">
-            <b>公式LINEで相談・注文する</b>
+          <b>公式LINEで相談・注文する</b>
         </span>
       </span>
       <span class="right" aria-hidden="true"><span class="arrow"></span></span>
@@ -1127,6 +1172,24 @@
 
       io.observe(footer);
     })();
+
+    // ✅ 3) CTAクリック計測（GA4 / gtag）
+    // 既存要素は変更せず、data-cta を付与したリンクのみイベント送信
+    (function(){
+      document.addEventListener('click', function(e){
+        const el = e.target.closest('[data-cta]');
+        if(!el) return;
+
+        const name = el.getAttribute('data-cta');
+        if(typeof gtag === 'function'){
+          gtag('event', name, {
+            event_category: 'cta',
+            event_label: location.href
+          });
+        }
+      }, true);
+    })();
   </script>
 </body>
 </html>
+```

@@ -430,6 +430,50 @@
     }
     .warn b{ color: var(--rose); }
 
+    /* 草木染めについてのご注意 */
+    .dyeing-note-box {
+      padding: 18px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(166,183,173,.22);
+      background: rgba(166,183,173,.08);
+      color: var(--ink);
+    }
+    .dyeing-note-box p {
+      margin: 0 0 12px;
+      font-weight: 700;
+      color: var(--sage);
+    }
+    .dyeing-note-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .dyeing-note-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(166,183,173,.06);
+      border: 1px solid rgba(166,183,173,.16);
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .dyeing-note-list li::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage);
+      box-shadow: 0 0 0 5px rgba(166,183,173,.10);
+      flex: 0 0 auto;
+      margin-top: 6px;
+    }
+
     /* 価格 & 注文 */
     .order{
       display:grid;
@@ -499,18 +543,17 @@
     }
 
     /* ✅ 修正ポイント：
-       右側の「GO/OPEN」文字を廃止 → 丸い矢印アイコンだけで整合
-       右側は absolute 固定 → スマホでも折り返しで崩れない
-       padding-right を増やす → 右が見切れない
+       フレックスボックスで space-between を使用
+       テキストと矢印アイコンをバランス配置
+       スマホでもセンター揃えで見切れず
     */
     .btn{
-      position: relative;
       width: 100%;
       display:flex;
       align-items:center;
-      justify-content:flex-start; /* 右はabsolute */
+      justify-content:space-between;
       gap: 14px;
-      padding: 16px 64px 16px 16px; /* 右丸アイコン分 */
+      padding: 16px 16px;
       border-radius: 18px;
       text-decoration:none;
       border: 1px solid rgba(201,122,138,.20);
@@ -528,6 +571,7 @@
       flex-direction:column;
       gap: 4px;
       min-width: 0;
+      flex: 1;
     }
     .btn .left small{
       color: var(--muted);
@@ -544,10 +588,6 @@
     }
 
     .btn .right{
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
       width: 42px;
       height: 42px;
       border-radius: 999px;
@@ -557,6 +597,7 @@
       letter-spacing: .06em;
       background: rgba(255,255,255,.75);
       border: 1px solid rgba(201,122,138,.18);
+      flex-shrink: 0;
     }
     .btn .arrow{
       width: 12px;
@@ -748,6 +789,19 @@
       .grid{ grid-template-columns: 1fr; }
       .grid.three{ grid-template-columns: 1fr; }
       .section{ padding: 44px 0; }
+      .btn{
+        padding: 14px 14px;
+      }
+      .btn .right{
+        width: 38px;
+        height: 38px;
+      }
+      .btn .left small{
+        font-size: 0.88em;
+      }
+      .btn .left b{
+        font-size: 1em;
+      }
     }
     /* --- 動画セクション用の設定（修正版） --- */
     .video-container {
@@ -1002,6 +1056,26 @@
           </div>
 
           <p class="note">※無地の方には「麻の葉」の図案データをプレゼント！</p>
+        </div>
+      </section>
+
+      <div class="kuguri-divider" aria-hidden="true"></div>
+
+      <!-- 草木染めについてのご注意 -->
+      <section class="section reveal" id="dyeing-note">
+        <div class="section-head">
+          <h2>🌿草木染めについてのご注意🌿</h2>
+        </div>
+
+        <div class="panel">
+          <div class="dyeing-note-box">
+            <p>草木染めは自然素材を使った手染めのため、以下の点をご理解ください。</p>
+            <ul class="dyeing-note-list">
+              <li>一点ごとに色合いやムラが異なります</li>
+              <li>光や時間とともに少しずつ色が変化します</li>
+              <li>世界に一つだけの風合いとして、お迎えいただければ嬉しいです☺️</li>
+            </ul>
+          </div>
         </div>
       </section>
 

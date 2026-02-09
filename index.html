@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -15,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>刺し子で彩る日常｜ハーフハンカチ手作りキット｜刺し子どり</title>
 
-  <!-- ✅ OGP / SEO（追加：要素削除なし） -->
+  <!-- ✅ OGP / SEO -->
   <meta name="description" content="草木染（枇杷・月桂樹）素材の刺し子ハーフハンカチを手作りできるキット。説明書＋動画つき。わからない時は公式LINEやDMでサポートします。">
   <link rel="canonical" href="https://kens-pro.github.io/Halfhandkerchief/">
   <meta property="og:title" content="刺し子ハーフハンカチキット｜刺し子どり">
@@ -28,30 +27,28 @@
   <meta name="twitter:description" content="草木染（枇杷・月桂樹）素材の刺し子ハーフハンカチを手作りできるキット。説明書＋動画つき。公式LINEやDMでサポートします。">
   <meta name="twitter:image" content="https://kens-pro.github.io/Halfhandkerchief/imeges/IMG_1555.jpg">
 
-  <!-- Fonts（読みやすさ重視） -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* 桜×くすみ（落ち着き） */
-      --sakura-bg: #F7E9EC;     /* 背景（黒→桜） */
-      --paper:     #FFFFFF;     /* 面 */
-      --paper2:    #FFF7F8;     /* 面のほんのり桜 */
-      --ink:       #7D7D7D;     /* 文字（ダークグレー） */
-      --muted:     #A6A6A6;     /* サブ文字（ダークグレー） */
-      --rose:      #C97A8A;     /* 桜の芯（強調） */
-      --dust:      #DABEC6;     /* くすみ桜 */
-      --sage:      #A6B7AD;     /* くすみ緑（補色） */
-      --clay:      #C8B1A3;     /* くすみベージュ */
+      --sakura-bg: #F7E9EC;
+      --paper:     #FFFFFF;
+      --paper2:    #FFF7F8;
+      --ink:       #7D7D7D;
+      --muted:     #A6A6A6;
+      --rose:      #C97A8A;
+      --dust:      #DABEC6;
+      --sage:      #A6B7AD;
+      --clay:      #C8B1A3;
 
       --radius: 22px;
       --radius2: 30px;
       --shadow: 0 18px 60px rgba(47,42,42,.10);
       --shadow2: 0 10px 24px rgba(47,42,42,.10);
 
-      /* 50代向け：見やすい大きめ */
       --base: clamp(18px, 1.15vw + 14px, 22px);
       --lh: 1.95;
       --maxw: 1040px;
@@ -76,7 +73,6 @@
     a{ color: inherit; }
     img{ display:block; max-width:100%; }
 
-    /* ✅ 見切れ対策：幅計算ではなく padding 方式で左右安全余白を確保 */
     .wrap{
       width: 100%;
       max-width: var(--maxw);
@@ -87,11 +83,6 @@
       .wrap{ padding: 0 14px; }
     }
 
-    /* =========================
-      くぐり刺し風ライン（区切り）
-      - 上：刺し子ステッチ（点線）
-      - 下：くぐり糸（なめらかな波線）
-    ========================== */
     .kuguri-divider{
       height: 22px;
       background-repeat: repeat-x;
@@ -108,9 +99,6 @@
       margin: 26px 0;
     }
 
-    /* =========================
-      全体カード
-    ========================== */
     .lp{
       background: rgba(255,255,255,.55);
       backdrop-filter: blur(6px);
@@ -120,10 +108,6 @@
       overflow: hidden;
     }
 
-    /* =========================
-      ヘッダー：左右に見切れる・画像いっぱい
-      タイトルは画像内
-    ========================== */
     .hero-bleed{
       width: 100vw;
       position: relative;
@@ -147,7 +131,6 @@
       object-position: center;
       transform: scale(1.02);
     }
-    /* テキストが画像と喧嘩しないように、上に“桜のベール” */
     .hero-media::after{
       content:"";
       position:absolute;
@@ -158,7 +141,6 @@
       pointer-events:none;
     }
 
-    /* ✅ 見切れ対策：ヘッダー内タイトルも padding 方式 */
     .hero-title{
       position:absolute;
       left: 0;
@@ -176,7 +158,7 @@
     }
 
     .hero-title .box{
-      margin: 0 auto;  /* 中央 */
+      margin: 0 auto;
       display: block;
       max-width: 760px;
       background: rgba(255,255,255,.82);
@@ -223,9 +205,6 @@
       font-size: clamp(18px, 1.2vw + 10px, 24px);
     }
 
-    /* =========================
-      セクション
-    ========================== */
     .section{
       padding: 54px 0;
     }
@@ -260,7 +239,6 @@
       max-width: 100%;
     }
 
-    /* “こんな方に” */
     .fit-list{
       list-style:none;
       padding:0;
@@ -297,7 +275,6 @@
       transform: rotate(40deg);
     }
 
-    /* コンセプト：テキスト×画像 */
     .split{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -338,7 +315,6 @@
       aspect-ratio: 4/3;
     }
 
-    /* 選択カード */
     .grid{
       display:grid;
       gap: 16px;
@@ -392,7 +368,6 @@
       font-size: .98em;
     }
 
-    /* セット内容 */
     .kit-list{
       list-style:none;
       padding:0;
@@ -430,7 +405,6 @@
     }
     .warn b{ color: var(--rose); }
 
-    /* 草木染めについてのご注意 */
     .dyeing-note-box {
       padding: 18px 18px;
       border-radius: 18px;
@@ -474,7 +448,6 @@
       margin-top: 6px;
     }
 
-    /* 価格 & 注文 */
     .order{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -542,139 +515,87 @@
       width: 100%;
     }
 
-    /* ✅ 修正ポイント：
-       フレックスボックスで space-between を使用
-       テキストと矢印アイコンをバランス配置
-       スマホでもセンター揃えで見切れず
-    */
+    /* ✅ 見切れ修正ポイント: 
+       white-space: nowrap を削除し、paddingを調整 */
     .btn{
       width: 100%;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 14px;
-      padding: 16px 16px;
+      gap: 12px;
+      padding: 16px;
       border-radius: 18px;
       text-decoration:none;
       border: 1px solid rgba(201,122,138,.20);
       background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,247,248,.86));
       box-shadow: 0 10px 22px rgba(47,42,42,.10);
       transition: transform .15s ease, box-shadow .15s ease;
-      min-height: 70px;
+      min-height: 74px;
       max-width: 100%;
+      word-break: break-all; /* 文字溢れ防止 */
     }
     .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 30px rgba(47,42,42,.12); }
-    .btn:focus-visible{ outline: 3px solid rgba(201,122,138,.30); outline-offset: 2px; }
 
     .btn .left{
       display:flex;
       flex-direction:column;
-      gap: 4px;
+      gap: 2px;
       min-width: 0;
       flex: 1;
+      text-align: left; /* センター揃えの中でも文字は左寄せで見やすく */
     }
     .btn .left small{
       color: var(--muted);
       font-weight: 800;
-      font-size: .92em;
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
+      font-size: 0.82em;
+      line-height: 1.3;
+      white-space: normal; /* 改行を許可して見切れ防止 */
+      display: block;
     }
     .btn .left b{
       font-weight: 900;
-      letter-spacing: .04em;
+      letter-spacing: .02em;
       font-size: 1.05em;
+      line-height: 1.3;
     }
 
     .btn .right{
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       border-radius: 999px;
       display: grid;
       place-items: center;
-      font-weight: 900;
-      letter-spacing: .06em;
       background: rgba(255,255,255,.75);
       border: 1px solid rgba(201,122,138,.18);
       flex-shrink: 0;
     }
     .btn .arrow{
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-right: 2px solid currentColor;
       border-bottom: 2px solid currentColor;
       transform: rotate(-45deg);
+      margin-left: -2px;
     }
 
-    /* ボタン差別化（明るい色で区別） */
     .btn.line{
-      /* 薄めのグリーンにして、文字は真っ黒にしない（濃いグリーン系） */
       background: linear-gradient(180deg, #E9FFEF, #CFF7D8);
-      color: #163822; /* 真っ黒ではない濃い緑で可読性を確保 */
+      color: #163822;
       border-color: rgba(0,0,0,0.06);
-      box-shadow: 0 8px 18px rgba(22,56,34,0.06);
-      font-weight: 900;
-      text-shadow: 0 1px 0 rgba(255,255,255,0.6);
     }
-    .btn.line .right{
-      background: rgba(255,255,255,0.95);
-      color: #163822; /* 矢印も同じ色で統一 */
-      border-color: rgba(0,0,0,0.06);
-      box-shadow: 0 2px 6px rgba(22,56,34,0.06);
-    }
-    .btn.line:hover{
-      background: linear-gradient(180deg, #DFFFE5, #BFF0C6);
-      transform: translateY(-1px);
-    }
-    .btn.line .left small{ color: rgba(22,56,34,0.88); }
+    .btn.line .right{ background: rgba(255,255,255,0.95); color: #163822; }
+    .btn.line .left small{ color: rgba(22,56,34,0.7); }
 
-    .btn.square{
-      background: linear-gradient(180deg, #FFF7EA, #FFE6B3);
-      color: #5B3B12;
-      border-color: rgba(200,177,163,.18);
-    }
-    .btn.square .right{
-      background: rgba(255,255,255,0.9);
-      color: #B58866;
-      border-color: rgba(200,177,163,.18);
-    }
+    .btn.square{ background: linear-gradient(180deg, #FFF7EA, #FFE6B3); color: #5B3B12; }
+    .btn.square .right{ background: rgba(255,255,255,0.9); color: #B58866; }
 
-    .btn.mail{
-      background: linear-gradient(180deg, #E8F8FF, #CFF2FF);
-      color: #0B4F6F;
-      border-color: rgba(125,139,169,.18);
-    }
-    .btn.mail .right{
-      background: rgba(255,255,255,0.9);
-      color: #0B4F6F;
-      border-color: rgba(125,139,169,.16);
-    }
-    /* Instagramボタン（プロフィールへ誘導、DMを促すテキスト） */
     .btn.insta{
       background: linear-gradient(45deg, #f58529 0%, #dd2a7b 50%, #8134af 100%);
       color: #ffffff;
       border-color: transparent;
-      box-shadow: 0 10px 26px rgba(129,52,175,0.12);
     }
-    .btn.insta .right{
-      background: rgba(255,255,255,0.12);
-      color: #ffffff;
-      border-color: transparent;
-      box-shadow: none;
-    }
-    .btn.insta .left small{ color: rgba(255,255,255,0.95); }
-
-    .btn.mercari{
-      background: linear-gradient(180deg,#FFEAF0,#FFD0E0);
-      color: #8B2F4A;
-      border-color: rgba(201,122,138,.16);
-    }
-    .btn.mercari .right{
-      background: rgba(255,255,255,0.9);
-      color: var(--rose);
-      border-color: rgba(201,122,138,.16);
-    }
+    .btn.insta .right{ background: rgba(255,255,255,0.12); color: #ffffff; }
+    .btn.insta .left small{ color: rgba(255,255,255,0.9); }
 
     footer{
       padding: 44px 0 120px;
@@ -683,7 +604,6 @@
       font-weight: 700;
     }
 
-    /* 追従CTA */
     .sticky{
       position: fixed;
       left: 50%;
@@ -697,89 +617,51 @@
       box-shadow: 0 18px 60px rgba(47,42,42,.14);
       backdrop-filter: blur(10px);
       overflow:hidden;
-      transition: transform .2s ease, opacity .2s ease;
     }
     .sticky a{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 14px;
-      padding: 14px 16px;
+      padding: 12px 16px;
       text-decoration:none;
       font-weight: 900;
-      letter-spacing: .06em;
       color: var(--ink);
     }
-    .sticky .left{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      min-width: 0;
-    }
+    .sticky .left{ display:flex; align-items:center; gap: 10px; min-width: 0; }
     .sticky .badge2{
-      width: 38px; height: 38px;
+      width: 34px; height: 34px;
       border-radius: 999px;
-      background: rgba(201,122,138,.14);
-      border: 1px solid rgba(201,122,138,.22);
-      box-shadow: 0 0 0 8px rgba(201,122,138,.08);
+      background: var(--rose);
       display:grid;
       place-items:center;
       flex: 0 0 auto;
     }
     .sticky .badge2::after{
       content:"";
-      width: 12px; height: 12px;
-      border-radius: 3px;
-      background: var(--rose);
+      width: 10px; height: 10px;
+      border-radius: 2px;
+      background: #fff;
     }
-    .sticky .text{
-      display:flex;
-      flex-direction:column;
-      gap: 2px;
-      min-width: 0;
-    }
-    .sticky .text small{
-      color: var(--muted);
-      font-weight: 800;
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
-    }
-    .sticky .text b{
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
-    }
-    /* ✅ sticky右も「文字なし矢印」に統一 */
+    .sticky .text b{ font-size: 0.95em; white-space: nowrap; }
     .sticky .right{
-      width: 42px;
-      height: 42px;
+      width: 36px; height: 36px;
       border-radius: 999px;
       display:grid;
       place-items:center;
       color: var(--rose);
-      background: rgba(255,255,255,.75);
+      background: #fff;
       border: 1px solid rgba(201,122,138,.18);
       flex: 0 0 auto;
     }
 
-    /* アニメ（控えめ） */
     .reveal{
       opacity: 0;
       transform: translateY(12px);
       transition: opacity .5s ease, transform .5s ease;
     }
-    .reveal.in{
-      opacity: 1;
-      transform: translateY(0);
-    }
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior: auto; }
-      .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
-      .sticky{ transition:none !important; }
-    }
+    .reveal.in{ opacity: 1; transform: translateY(0); }
 
-    /* レスポンシブ */
     @media (max-width: 980px){
       .split{ grid-template-columns: 1fr; }
       .order{ grid-template-columns: 1fr; }
@@ -789,42 +671,22 @@
       .grid{ grid-template-columns: 1fr; }
       .grid.three{ grid-template-columns: 1fr; }
       .section{ padding: 44px 0; }
-      .btn{
-        padding: 14px 14px;
-      }
-      .btn .right{
-        width: 38px;
-        height: 38px;
-      }
-      .btn .left small{
-        font-size: 0.88em;
-      }
-      .btn .left b{
-        font-size: 1em;
-      }
+      .pricebox, .buybox { text-align: center; } /* スマホでセンター揃え */
+      .ship { justify-content: center; }
+      .btn .left b { font-size: 0.95em; }
     }
-    /* --- 動画セクション用の設定（修正版） --- */
+
     .video-container {
       width: 100%;
-      max-width: 500px; /* PCでの表示サイズ：少し大きくしました */
+      max-width: 500px;
       margin: 0 auto 40px;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow2);
       background: #000;
-
-      /* 縦長比率(9:16)を維持するための設定 */
       position: relative;
       aspect-ratio: 9 / 16;
     }
-
-    /* aspect-ratioが効かない古いブラウザ用 */
-    @supports not (aspect-ratio: 9 / 16) {
-      .video-container {
-        padding-top: 177.77%; /* 16 ÷ 9 = 1.77... */
-      }
-    }
-
     .video-container iframe {
       position: absolute;
       top: 0;
@@ -833,14 +695,12 @@
       height: 100%;
       border: none;
     }
-    /* --- 動画セクション用の設定（ここまで） --- */
   </style>
 </head>
 
 <body>
 
   <div class="lp">
-    <!-- ヘッダー（左右に見切れる・画像いっぱい・タイトルは画像内） -->
     <header class="hero-bleed" aria-label="ヘッダー">
       <div class="hero-media">
         <img src="imeges/IMG_1555.jpg" alt="刺し子ハーフハンカチ">
@@ -857,13 +717,11 @@
     <div class="wrap">
       <div class="kuguri-divider" aria-hidden="true"></div>
 
-      <!-- 特徴 -->
       <section class="section reveal" id="fit">
         <div class="section-head">
           <h2>こんな方にピッタリです</h2>
           <p>「やってみたい」気持ちを、そのまま完成へ。</p>
         </div>
-
         <div class="panel">
           <ul class="fit-list">
             <li><span class="mark" aria-hidden="true"></span><span>材料を揃えたり、図案を描くのが大変だとお感じの方</span></li>
@@ -873,24 +731,19 @@
         </div>
       </section>
 
-      <!-- 制作動画セクション（ここから） -->
       <section class="section reveal" id="video">
         <div class="section-head">
           <h2>制作の様子を動画で見る</h2>
           <p>初めての方でも安心。手順を分かりやすく解説しています。</p>
         </div>
         <div class="video-container">
-          <!-- ✅ Vimeo：background=1 を外して通常視聴に（要素削除なし・srcのみ調整） -->
          <iframe
-  src="https://player.vimeo.com/video/1162425077?autoplay=1&muted=1&loop=1&autopause=0&controls=1&playsinline=1&title=0&byline=0&portrait=0"
-  allow="autoplay; fullscreen; picture-in-picture"
-  title="制作サンプル動画"></iframe>
-
+            src="https://player.vimeo.com/video/1162425077?autoplay=1&muted=1&loop=1&autopause=0&controls=1&playsinline=1&title=0&byline=0&portrait=0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            title="制作サンプル動画"></iframe>
         </div>
       </section>
-      <!-- 制作動画セクション（ここまで） -->
 
-      <!-- 価格・購入（メルカリ例外対応版） -->
       <section class="section reveal" id="order">
         <div class="section-head">
           <h2>ご注文はこちら</h2>
@@ -910,7 +763,6 @@
           <div class="buybox">
             <h3>購入・申込</h3>
             <div class="btns">
-              <!-- Square -->
               <a href="https://my-site-104584-109581.square.site/product/-/XG3AL6EQGTVSFGBWOPNCURIO?cp=true&sa=true&sbp=false&q=false"
                  class="btn square"
                  data-cta="buy_square_main">
@@ -921,7 +773,6 @@
                 <span class="right" aria-hidden="true"><span class="arrow"></span></span>
               </a>
 
-              <!-- LINE -->
               <a href="https://lin.ee/ce9vOwT"
                  class="btn line"
                  data-cta="apply_line_main">
@@ -932,7 +783,6 @@
                 <span class="right" aria-hidden="true"><span class="arrow"></span></span>
               </a>
 
-              <!-- Instagram -->
               <a href="https://www.instagram.com/sashikodori/"
                  class="btn insta"
                  target="_blank"
@@ -947,7 +797,6 @@
               </a>
             </div>
 
-            <!-- メルカリ案内ボックス（例外対応） -->
             <div class="note-box" style="margin-top: 24px; padding: 22px; border-radius: 22px; background: rgba(201,122,138,0.05); border: 1px dashed #C97A8A; text-align: left;">
               <p style="font-family: 'Shippori Mincho', serif; color: #C97A8A; font-weight: 700; margin: 0 0 10px; font-size: 1.1rem;">メルカリをご希望の方へ</p>
               <p style="margin:0; font-size: 0.9em; font-weight:600; line-height: 1.6;">
@@ -963,19 +812,16 @@
                 </a>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
       <div class="kuguri-divider" aria-hidden="true"></div>
 
-      <!-- コンセプト -->
       <section class="section reveal" id="concept">
         <div class="section-head">
           <h2>世界でただひとつ。あなたの心を贈る。</h2>
         </div>
-
         <div class="split">
           <div class="text">
             <p class="lead">“静かなオシャレ”は、手元から。</p>
@@ -990,83 +836,48 @@
 
       <div class="kuguri-divider" aria-hidden="true"></div>
 
-      <!-- 選べる色とデザイン -->
       <section class="section reveal" id="design">
         <div class="section-head">
           <h2>選べる色とデザイン</h2>
         </div>
-
         <div class="panel">
           <div style="font-weight:900; letter-spacing:.06em;">【生地色（草木染）】どちらかお選びください</div>
           <div class="grid">
             <div class="card">
-              <div class="thumb">
-                <img src="imeges/biwasankaku.png" alt="枇杷染め">
-              </div>
-              <div class="card-body">
-                <b>月桂樹染め</b>
-                <small>やさしい深み。肌なじみの良い色合い。</small>
-              </div>
+              <div class="thumb"><img src="imeges/biwasankaku.png" alt="枇杷染め"></div>
+              <div class="card-body"><b>月桂樹染め</b><small>やさしい深み。肌なじみの良い色合い。</small></div>
             </div>
-
             <div class="card">
-              <div class="thumb">
-                <img src="imeges/gekeisipou.png" alt="月桂樹染め">
-              </div>
-              <div class="card-body">
-                <b>枇杷（びわ）染め</b>
-                <small>すっきり上品。凛とした雰囲気に。</small>
-              </div>
+              <div class="thumb"><img src="imeges/gekeisipou.png" alt="月桂樹染め"></div>
+              <div class="card-body"><b>枇杷（びわ）染め</b><small>すっきり上品。凛とした雰囲気に。</small></div>
             </div>
           </div>
-
           <div style="height:18px;"></div>
           <div style="font-weight:900; letter-spacing:.06em;">【下図デザイン】お好きな柄をお選びください</div>
-
           <div class="grid three">
             <div class="card">
-              <div class="thumb">
-                <img src="imeges/sipou.png" alt="七宝つなぎ">
-              </div>
-              <div class="card-body">
-                <b>七宝つなぎ</b>
-                <small>整うリズム。王道の美しさ。</small>
-              </div>
+              <div class="thumb"><img src="imeges/sipou.png" alt="七宝つなぎ"></div>
+              <div class="card-body"><b>七宝つなぎ</b><small>整うリズム。王道の美しさ。</small></div>
             </div>
-
             <div class="card">
-              <div class="thumb">
-                <img src="imeges/sankaku.png" alt="三角千鳥">
-              </div>
-              <div class="card-body">
-                <b>三角千鳥</b>
-                <small>軽やかで粋。動きのある表情。</small>
-              </div>
+              <div class="thumb"><img src="imeges/sankaku.png" alt="三角千鳥"></div>
+              <div class="card-body"><b>三角千鳥</b><small>軽やかで粋。動きのある表情。</small></div>
             </div>
-
             <div class="card">
-              <div class="thumb">
-                <img src="imeges/kiji.png" alt="無地">
-              </div>
-              <div class="card-body">
-                <b>無地</b>
-                <small>“余白”がオシャレ。布の質感を楽しむ。</small>
-              </div>
+              <div class="thumb"><img src="imeges/kiji.png" alt="無地"></div>
+              <div class="card-body"><b>無地</b><small>“余白”がオシャレ。布の質感を楽しむ。</small></div>
             </div>
           </div>
-
           <p class="note">※無地の方には「麻の葉」の図案データをプレゼント！</p>
         </div>
       </section>
 
       <div class="kuguri-divider" aria-hidden="true"></div>
 
-      <!-- 草木染めについてのご注意 -->
       <section class="section reveal" id="dyeing-note">
         <div class="section-head">
           <h2>🌿草木染めについてのご注意🌿</h2>
         </div>
-
         <div class="panel">
           <div class="dyeing-note-box">
             <p>草木染めは自然素材を使った手染めのため、以下の点をご理解ください。</p>
@@ -1081,13 +892,11 @@
 
       <div class="kuguri-divider" aria-hidden="true"></div>
 
-      <!-- セット内容 -->
       <section class="section reveal" id="kit">
         <div class="section-head">
           <h2>セット内容</h2>
           <p>必要な布は全部入っています。あとは針と糸だけ。</p>
         </div>
-
         <div class="panel">
           <ul class="kit-list">
             <li><i aria-hidden="true"></i><span>表地：草木染 晒 1枚 ＋ 重ね用白晒 1枚</span></li>
@@ -1095,7 +904,6 @@
             <li><i aria-hidden="true"></i><span>裏生地：ダブルガーゼ 1枚（ドット柄）</span></li>
             <li><i aria-hidden="true"></i><span>作り方の説明プリント ＋ 解説動画（アドレスやQRコード）</span></li>
           </ul>
-
           <div class="warn">
             <b>※針や糸は含まれておりません。</b>お手持ちの物をご用意ください。
           </div>
@@ -1104,8 +912,6 @@
 
       <div class="kuguri-divider" aria-hidden="true"></div>
 
-      <!-- 価格・購入（メルカリ例外対応版） -->
-      <!-- ✅ id重複を解消（要素削除なし・idのみ変更） -->
       <section class="section reveal" id="order2">
         <div class="section-head">
           <h2>ご注文はこちら</h2>
@@ -1125,7 +931,6 @@
           <div class="buybox">
             <h3>購入・申込</h3>
             <div class="btns">
-              <!-- Square -->
               <a href="https://my-site-104584-109581.square.site/product/-/XG3AL6EQGTVSFGBWOPNCURIO?cp=true&sa=true&sbp=false&q=false"
                  class="btn square"
                  data-cta="buy_square_bottom">
@@ -1136,7 +941,6 @@
                 <span class="right" aria-hidden="true"><span class="arrow"></span></span>
               </a>
 
-              <!-- LINE -->
               <a href="https://lin.ee/ce9vOwT"
                  class="btn line"
                  data-cta="apply_line_bottom">
@@ -1147,7 +951,6 @@
                 <span class="right" aria-hidden="true"><span class="arrow"></span></span>
               </a>
 
-              <!-- Instagram -->
               <a href="https://www.instagram.com/sashikodori/"
                  class="btn insta"
                  target="_blank"
@@ -1162,7 +965,6 @@
               </a>
             </div>
 
-            <!-- メルカリ案内ボックス（例外対応） -->
             <div class="note-box" style="margin-top: 24px; padding: 22px; border-radius: 22px; background: rgba(201,122,138,0.05); border: 1px dashed #C97A8A; text-align: left;">
               <p style="font-family: 'Shippori Mincho', serif; color: #C97A8A; font-weight: 700; margin: 0 0 10px; font-size: 1.1rem;">メルカリをご希望の方へ</p>
               <p style="margin:0; font-size: 0.9em; font-weight:600; line-height: 1.6;">
@@ -1178,7 +980,6 @@
                 </a>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -1189,7 +990,6 @@
     </div>
   </div>
 
-  <!-- 追従ボタン（右は矢印のみで整合） -->
   <div class="sticky" id="sticky">
     <a href="https://lin.ee/ce9vOwT"
        aria-label="公式LINEで相談・注文"
@@ -1205,11 +1005,9 @@
   </div>
 
   <script>
-    // 1) ふわっと表示（控えめ）
     (function(){
       const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduce) return;
-
       const els = document.querySelectorAll('.reveal');
       const io = new IntersectionObserver((entries) => {
         entries.forEach(e => {
@@ -1219,18 +1017,13 @@
           }
         });
       }, { threshold: 0.12 });
-
       els.forEach(el => io.observe(el));
     })();
 
-    // 2) フッター付近で追従CTAを少し引っ込める（邪魔を減らす）
     (function(){
       const sticky = document.getElementById('sticky');
       const footer = document.getElementById('footer');
       if (!sticky || !footer) return;
-
-      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
       const io = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
@@ -1240,22 +1033,15 @@
             sticky.style.opacity = '1';
             sticky.style.transform = 'translateX(-50%) translateY(0)';
           }
-          if (reduce){
-            sticky.style.transition = 'none';
-          }
         });
       }, { threshold: 0.1 });
-
       io.observe(footer);
     })();
 
-    // ✅ 3) CTAクリック計測（GA4 / gtag）
-    // 既存要素は変更せず、data-cta を付与したリンクのみイベント送信
     (function(){
       document.addEventListener('click', function(e){
         const el = e.target.closest('[data-cta]');
         if(!el) return;
-
         const name = el.getAttribute('data-cta');
         if(typeof gtag === 'function'){
           gtag('event', name, {
@@ -1268,4 +1054,3 @@
   </script>
 </body>
 </html>
-```
